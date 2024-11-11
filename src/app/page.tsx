@@ -1,10 +1,27 @@
 'use client'
 
+import { ProjectDataModel } from '@/datamodels/ProjectDataModel';
+import {ProjectCard} from '@/components/ProjectCard';
 // pages/index.js
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function HomePage() {
   const [activeLink, setActiveLink] = useState('');
+
+  useEffect(() => {
+    setActiveLink('portfolio')
+  }, []);
+
+  const getProjectCardsData = () =>{
+    let card1 = {
+      title: "Aristocrat Connex",
+      imageURL: "",
+      components: ["NodeJS", "Python", "RabbitMQ", "SocketIO"],
+      description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications"
+    } as ProjectDataModel
+    const result = [card1];
+    return result;
+  }
 
   return (
     <div className="min-h-screen bg-gray-200 flex flex-col items-center p-4 animate-fadeIn">
@@ -31,19 +48,7 @@ export default function HomePage() {
       </div>
 
       {/* Prpject Cards */}
-      <div className="flex flex-col space-y-6 w-full max-w-2xl">
-        {['Card 1', 'Card 2', 'Card 3'].map((cardTitle, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden w-full">
-            <h2 className="text-xl font-semibold p-4 border-b text-black">{cardTitle}</h2>
-            <div className="w-full h-48 bg-gray-300"></div>
-            <p className="p-4 text-black">This is a description of {cardTitle}. It provides details about the content of the card.</p>
-            <div className="p-4 text-black">
-              <span className="block">Component 1</span>
-              <span className="block">Component 2</span>
-            </div>
-          </div>
-        ))}
-      </div>
+      <ProjectCard projectCards={getProjectCardsData()}></ProjectCard>
     </div>
   );
 }
