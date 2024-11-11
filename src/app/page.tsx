@@ -7,7 +7,7 @@ export default function HomePage() {
   const [activeLink, setActiveLink] = useState('');
 
   return (
-    <div className="min-h-screen bg-gray-200 flex flex-col items-center p-4">
+    <div className="min-h-screen bg-gray-200 flex flex-col items-center p-4 animate-fadeIn">
       
       {/* Title Card */}
       <div className="p-6 text-center mb-8 w-full max-w-2xl">
