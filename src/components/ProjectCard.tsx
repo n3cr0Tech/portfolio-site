@@ -14,7 +14,7 @@ const ProjectCard = (props: {projectCards: ProjectDataModel[]}) =>{
                         <span className="block">Components:</span>              
                         <span>
                             {e.components.map((c, ci) => (
-                                <h4>{c}</h4>
+                                <h4 key={ci}>{c}</h4>
                             ))}
                         </span>
                     </div>
