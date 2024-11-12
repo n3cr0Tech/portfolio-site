@@ -18,8 +18,16 @@ export default function HomePage() {
       imageURL: "",
       components: ["NodeJS", "Python", "RabbitMQ", "SocketIO"],
       description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications"
-    } as ProjectDataModel
-    const result = [card1];
+    } as ProjectDataModel;
+
+    let card2 = {
+      title: "AWS AutoDep Tool",
+      imageURL: "",
+      components: ["Python", "BOTO3", "AWS"],
+      description: "Internal tool used by various departments to deploy their apps onto AWS. It handled secrets, credentials, and config files for various AWS components (e.g. ElasticBeanstalk, DynamoDB, EC2, Lambda, etc.",
+    } as ProjectDataModel;
+
+    const result = [card1, card2];
     return result;
   }
 
