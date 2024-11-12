@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image';
 // pages/index.js
 import { useState } from 'react';
 
@@ -35,7 +36,13 @@ export default function HomePage() {
         {['Card 1', 'Card 2', 'Card 3'].map((cardTitle, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden w-full">
             <h2 className="text-xl font-semibold p-4 border-b text-black">{cardTitle}</h2>
-            <div className="w-full h-48 bg-gray-300"></div>
+            <Image
+              src="/dog.jpg" 
+              alt="dog photo"
+              layout="responsive"
+              width={1920}
+              height={1080}
+            />
             <p className="p-4 text-black">This is a description of {cardTitle}. It provides details about the content of the card.</p>
             <div className="p-4 text-black">
               <span className="block">Component 1</span>
