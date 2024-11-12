@@ -3,6 +3,7 @@ import {ProjectDataModel} from "../datamodels/ProjectDataModel";
 
 const ProjectCard = (props: {projectCards: ProjectDataModel[]}) =>{
 
+    
     return (
         <div className="flex flex-col space-y-6 w-full max-w-2xl">
             {props.projectCards.map((e, index) => (
@@ -12,11 +13,7 @@ const ProjectCard = (props: {projectCards: ProjectDataModel[]}) =>{
                     <p className="p-4 text-black">{e.description}</p>
                     <div className="p-4 text-gray-400 text-xs">
                         <span className="block">Components:</span>              
-                        <span>
-                            {e.components.map((c, ci) => (
-                                <h4 key={ci}>{c}</h4>
-                            ))}
-                        </span>
+                        <span>{e.components.join(', ')}</span>
                     </div>
                 </div>
                 ))}
