@@ -3,6 +3,7 @@
 import Image from 'next/image';
 // pages/index.js
 import { useState } from 'react';
+import dogPic from "@/assets/dog.jpg"
 
 export default function HomePage() {
   const [activeLink, setActiveLink] = useState('');
@@ -37,7 +38,7 @@ export default function HomePage() {
           <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden w-full">
             <h2 className="text-xl font-semibold p-4 border-b text-black">{cardTitle}</h2>
             <Image
-              src="/dog.jpg" 
+              src={dogPic}
               alt="dog photo"
               layout="responsive"
               width={1920}
