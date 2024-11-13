@@ -38,12 +38,20 @@ export default function HomePage() {
     return result;
   }
 
+  const getCurrentPage = () => {
+    if(activeLink == "passionProjects"){
+      //return some other page i havent done yet
+    }else{
+      return <ProjectCard projectCards={getProjectCardsData()}></ProjectCard>
+    }    
+  }
+
   return (
     <div className="min-h-screen bg-gray-200 flex flex-col items-center p-4 animate-fadeIn">
       
       {/* Title Card */}
-      <div className="p-6 text-center mb-8 w-full max-w-2xl">
-        <h1 className="text-2xl font-bold text-black">John Doe</h1>
+      <div className="p-6 text-center mb-8 w-full max-w-2xl">      
+        <h1 className="text-4xl font-bold text-black" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Jehoshua Josue</h1>
       </div>
 
       {/* Links */}
@@ -55,15 +63,16 @@ export default function HomePage() {
           Portfolio
         </button>
         <button
-          className={`text-lg ${activeLink === 'projects' ? 'text-black underline underline-offset-4' : 'text-gray-400'}`}
-          onClick={() => setActiveLink('projects')}
+          className={`text-lg ${activeLink === 'passionProjects' ? 'text-black underline underline-offset-4' : 'text-gray-400'}`}
+          onClick={() => setActiveLink('passionProjects')}
         >
           Passion Projects
         </button>
       </div>
 
       {/* Prpject Cards */}
-      <ProjectCard projectCards={getProjectCardsData()}></ProjectCard>
+      {getCurrentPage()}
+      
     </div>
   );
 }
