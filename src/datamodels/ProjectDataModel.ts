@@ -1,6 +1,8 @@
+import { StaticImageData } from "next/image";
+
 export interface ProjectDataModel{
     title: string;
-    imageURL: string; //optional
+    imageURL: StaticImageData; //optional
     components: string[];
     description: string;
 }
