@@ -1,57 +1,72 @@
 'use client'
 
-import Image from 'next/image';
+import { ProjectDataModel } from '@/datamodels/ProjectDataModel';
+import {ProjectCard} from '@/components/ProjectCard';
+
+
 // pages/index.js
-import { useState } from 'react';
-import dogPic from "@/assets/dog.jpg"
+import { useEffect, useState } from 'react';
+import { PortfolioPage } from '@/pages/portfolio';
 
 export default function HomePage() {
-  const [activeLink, setActiveLink] = useState('');
+  
+  const [password, setPassword] = useState('');
+  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setError('');  // Reset any previous error messages
+
+    try {
+      const response = await fetch('/api/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.authorized) {
+          setIsAuthorized(true);
+        } else {
+          setError('Incorrect password, please try again.');
+        }
+      } else {
+        setError('An error occurred. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection.');
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-200 flex flex-col items-center p-4">
-      
-      {/* Title Card */}
-      <div className="p-6 text-center mb-8 w-full max-w-2xl">
-        <h1 className="text-2xl font-bold text-black">John Doe</h1>
-      </div>
-
-      {/* Links */}
-      <div className="flex space-x-4 mb-8">
-        <button
-          className={`text-lg ${activeLink === 'portfolio' ? 'text-black underline underline-offset-4' : 'text-gray-400'}`}
-          onClick={() => setActiveLink('portfolio')}
-        >
-          Portfolio
-        </button>
-        <button
-          className={`text-lg ${activeLink === 'projects' ? 'text-black underline underline-offset-4' : 'text-gray-400'}`}
-          onClick={() => setActiveLink('projects')}
-        >
-          Passion Projects
-        </button>
-      </div>
-
-      {/* Prpject Cards */}
-      <div className="flex flex-col space-y-6 w-full max-w-2xl">
-        {['Card 1', 'Card 2', 'Card 3'].map((cardTitle, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden w-full">
-            <h2 className="text-xl font-semibold p-4 border-b text-black">{cardTitle}</h2>
-            <Image
-              src={dogPic}
-              alt="dog photo"
-              layout="responsive"
-              width={1920}
-              height={1080}
+    <div>
+      {!isAuthorized ? (
+        <div className="min-h-screen flex items-center justify-center">
+          <form onSubmit={handleSubmit} className="p-8 bg-white shadow-md rounded">
+            <h1 className="text-xl font-bold mb-4 text-gray-500">Please enter the password</h1>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              className="border p-2 w-full text-gray-500 mb-4"
             />
-            <p className="p-4 text-black">This is a description of {cardTitle}. It provides details about the content of the card.</p>
-            <div className="p-4 text-black">
-              <span className="block">Component 1</span>
-              <span className="block">Component 2</span>
-            </div>
-          </div>
-        ))}
-      </div>
+            {error && <p className="text-red-500 mb-4">{error}</p>}
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      ) : (
+        <PortfolioPage/>
+      )}
     </div>
   );
 }

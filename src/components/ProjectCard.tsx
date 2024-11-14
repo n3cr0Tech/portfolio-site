@@ -1,0 +1,42 @@
+
+import {ProjectDataModel} from "../datamodels/ProjectDataModel";
+import Image, { StaticImageData } from "next/image";
+
+export const ProjectCard = (props: {projectCards: ProjectDataModel[]}) =>{
+
+    const ensureImageDisplay = (imgUrl: StaticImageData) => {    
+        if (imgUrl.src != null){            
+            return (
+                <Image
+                    src = {imgUrl}
+                    alt = "img"
+                    width = {180}
+                    height = {38}
+                    layout = "responsive"
+                    priority
+                />
+            )       
+        }else{
+            return <p></p>
+        }
+    }
+
+    return (
+        <div className="flex flex-col space-y-6 w-full max-w-2xl">
+            {props.projectCards.map((e, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden w-full">
+                    <h2 className="text-xl font-semibold p-4 text-black">{e.title}</h2>                    
+                    <div className="flex justify-center items-center max-h-[300px] overflow-hidden">
+                        {ensureImageDisplay(e.imageURL)}
+                    </div>
+                    <p className="p-4 text-black">{e.description}</p>
+                    <div className="p-4 text-gray-400 text-xs">
+                        <span className="block">Components:</span>              
+                        <span>{e.components.join(', ')}</span>
+                    </div>
+                </div>
+                ))}
+        </div>        
+    )
+
+}
