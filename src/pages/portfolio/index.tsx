@@ -12,7 +12,7 @@ import yoBatman from '@/assets/yoBatman.png'
 import deliverySystem from '@/assets/deliverySystem.png'
 import alienEgg from '@/assets/alienEgg.png'
 
-export const PortfolioPage = () => {
+export default function PortfolioPage() {
     const [activeLink, setActiveLink] = useState('');
 
     useEffect(() => {
