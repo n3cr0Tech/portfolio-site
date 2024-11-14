@@ -86,7 +86,9 @@ export default function PortfolioPage() {
           {/* Title Card */}
           <div className="p-6 text-center mb-8 w-full max-w-2xl">      
             <h1 className="text-4xl font-bold text-black" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Jehoshua Josue</h1>
-          </div>
+            <h1 className="text-s font-bold text-gray-500" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>jjosue@nomadic-interactive.com</h1>
+            
+          </div>         
     
           {/* Links */}
           <div className="flex space-x-4 mb-8">
