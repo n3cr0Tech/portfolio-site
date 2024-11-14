@@ -1,9 +1,16 @@
 import { ProjectDataModel } from "@/datamodels/ProjectDataModel";
-import buffaloBigWheel from '@/assets/buffalo_big_wheel.jpg'
-import aristoConnex from '@/assets/aristocrat_connex.jpeg'
-import yoBatman from '@/assets/yo_batman.png'
 import { useEffect, useState } from "react";
 import { ProjectCard } from "@/components/ProjectCard";
+
+//work projects
+import buffaloBigWheel from '@/assets/buffaloBigWheel.jpg'
+import aristoConnex from '@/assets/aristocratConnex.jpeg'
+import buffaloTourney from '@/assets/buffaloTourney.jpg'
+
+//personal projects
+import yoBatman from '@/assets/yoBatman.png'
+import deliverySystem from '@/assets/deliverySystem.png'
+import alienEgg from '@/assets/alienEgg.png'
 
 const PortfolioPage = () => {
     const [activeLink, setActiveLink] = useState('');
@@ -12,18 +19,18 @@ const PortfolioPage = () => {
       setActiveLink('portfolio')
     }, []);
     
-    const getProjectCardsData = () =>{
+    const getWorkProjectCardsData = () =>{
         let card1 = {
           title: "Aristocrat Connex",
           imageURL: aristoConnex,
-          components: ["NodeJS", "Python", "RabbitMQ", "SocketIO", "AWS"],
+          components: ["NodeJS", "Python", "MongoDB", "RabbitMQ", "SocketIO", "AWS"],
           description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications. A scanner component that scanned the User's QR code and logged them into the slot machine"
         } as ProjectDataModel;
     
         let card2 = {
           title: "Buffalo Big Wheel",
           imageURL: buffaloBigWheel,
-          components: ["NodeJS", "RabbitMQ", "SocketIO", "Unity"],
+          components: ["NodeJS", "MongoDB", "RabbitMQ", "SocketIO", "Unity"],
           description: "Designed architecture and game flow (e.g. game sequences and SocketIO communications). Implemented adapter for capacitive touch hardware to control Unity game"
         } as unknown as ProjectDataModel;
     
@@ -34,15 +41,42 @@ const PortfolioPage = () => {
           description: "Internal tool used to deploy apps onto AWS. It handled secrets, credentials, and config files for various AWS components (e.g. ElasticBeanstalk, DynamoDB, EC2, Lambda, etc.)",
         } as ProjectDataModel;
     
-        const result = [card1, card2, card3, ];
+        const result = [card1, card2, card3];
         return result;
+    }
+
+    const getPersonalProjectsCardData = () =>{
+      let card1 = {
+        title: "Animatronic 8-Ball",
+        imageURL: yoBatman,
+        components: ["Python", "Google STT API, Raspberry Pi"],
+        description: "Users can say the wake word and the animatronic head will prompt the User to state their yes/no question. Then based on the response being yes or no, the animatronic head will nod or pan as voice lines play."
+      } as ProjectDataModel;
+
+      let card2 = {
+        title: "Delivery System",
+        imageURL: deliverySystem,
+        components: ["NodeJS", "React", "Flutter", "MongoDB", "SocketIO"],
+        description: "Created a webportal that allows admin users to enter names and addresses that drivers would need to go to. The Flutter app used by drivers will be notified of new destinations and a marker will be placed on the map."
+      } as ProjectDataModel;
+
+      let card3 = {
+        title: "Alien Egg",
+        imageURL: alienEgg,
+        components: ["Python", "NodeJS", "Raspberry Pi"],
+        description: "Developed a linear actuator that would move a creature upwards, which pushes the egg's flaps open. When the create moves downward, the flaps close up again. A NodeJS server allows the user to trigger the egg remotely"
+      } as ProjectDataModel;
+
+  
+      const result = [card1, card2, card3];
+      return result;
     }
 
     const getCurrentPage = () => {
     if(activeLink == "passionProjects"){
-        //return some other page i havent done yet
+      return <ProjectCard projectCards={getPersonalProjectsCardData()}></ProjectCard>
     }else{
-        return <ProjectCard projectCards={getProjectCardsData()}></ProjectCard>
+        return <ProjectCard projectCards={getWorkProjectCardsData()}></ProjectCard>
     }    
     }
 
@@ -70,7 +104,7 @@ const PortfolioPage = () => {
             </button>
           </div>
     
-          {/* Prpject Cards */}
+          {/* Project Cards */}
           {getCurrentPage()}
           
         </div>
