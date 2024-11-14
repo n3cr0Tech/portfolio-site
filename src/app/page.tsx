@@ -23,7 +23,7 @@ export default function HomePage() {
       title: "Aristocrat Connex",
       imageURL: aristoConnex,
       components: ["NodeJS", "Python", "RabbitMQ", "SocketIO", "AWS"],
-      description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications"
+      description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications. A scanner component that scanned the User's QR code and logged them into the slot machine"
     } as ProjectDataModel;
 
     let card2 = {
@@ -36,8 +36,8 @@ export default function HomePage() {
     let card3 = {
       title: "AWS AutoDep Tool",
       imageURL: {},
-      components: ["Python", "BOTO3", "AWS"],
-      description: "Internal tool used by various departments to deploy their apps onto AWS. It handled secrets, credentials, and config files for various AWS components (e.g. ElasticBeanstalk, DynamoDB, EC2, Lambda, etc.",
+      components: ["Python", "PyTest", "BOTO3", "AWS"],
+      description: "Internal tool used to deploy apps onto AWS. It handled secrets, credentials, and config files for various AWS components (e.g. ElasticBeanstalk, DynamoDB, EC2, Lambda, etc.)",
     } as ProjectDataModel;
 
     const result = [card1, card2, card3, ];
