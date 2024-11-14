@@ -47,13 +47,13 @@ export default function HomePage() {
       {!isAuthorized ? (
         <div className="min-h-screen flex items-center justify-center">
           <form onSubmit={handleSubmit} className="p-8 bg-white shadow-md rounded">
-            <h1 className="text-xl font-bold mb-4">Enter Password to Access</h1>
+            <h1 className="text-xl font-bold mb-4 text-gray-500">Please enter the password</h1>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="border p-2 w-full mb-4"
+              className="border p-2 w-full text-gray-500 mb-4"
             />
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <button
