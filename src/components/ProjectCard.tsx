@@ -29,8 +29,8 @@ export const ProjectCard = (props: {projectCards: ProjectDataModel[]}) =>{
                     <div className="flex justify-center items-center max-h-[300px] overflow-hidden">
                         {ensureImageDisplay(e.imageURL)}
                     </div>
-                    <p className="p-4 text-black">{e.description}</p>
-                    <div className="p-4 text-gray-400 text-xs">
+                    <p className="p-4 text-black">{e.description}</p>                    
+                    <div className="p-4 bg-gray-500 text-white text-md p-2">
                         <span className="block">Components:</span>              
                         <span>{e.components.join(', ')}</span>
                     </div>
