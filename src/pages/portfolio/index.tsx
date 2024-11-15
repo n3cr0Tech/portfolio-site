@@ -30,7 +30,7 @@ export default function PortfolioPage() {
         let card2 = {
           title: "Buffalo Big Wheel",
           imageURL: buffaloBigWheel,
-          components: ["NodeJS", "MongoDB", "RabbitMQ", "SocketIO", "Unity"],
+          components: ["NodeJS", "MongoDB", "AWS", "RabbitMQ", "SocketIO", "Unity"],
           description: "Designed architecture and game flow (e.g. game sequences and SocketIO communications). Implemented adapter for capacitive touch hardware to control Unity game"
         } as unknown as ProjectDataModel;
     
