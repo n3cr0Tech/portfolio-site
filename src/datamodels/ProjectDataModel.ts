@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image";
 
 export interface ProjectDataModel{
     title: string;
-    imageURL: StaticImageData; //optional
+    imageURLs: StaticImageData[]; //optional
     components: string[];
     description: string;
 }
