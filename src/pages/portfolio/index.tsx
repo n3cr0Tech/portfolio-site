@@ -8,9 +8,10 @@ import aristoConnex from '@/assets/aristocratConnex.jpeg'
 import buffaloTourney from '@/assets/buffaloTourney.jpg'
 
 //personal projects
-import yoBatman from '@/assets/yoBatman.png'
-import deliverySystem from '@/assets/deliverySystem.png'
-import alienEgg from '@/assets/alienEgg.png'
+import yoBatman from '@/assets/yoBatman.jpg'
+import deliverySystem from '@/assets/deliverySystem.jpg'
+import projectGundam from '@/assets/projectGundam.jpg'
+import alienEgg from '@/assets/alienEgg.jpg'
 
 export default function PortfolioPage() {
     const [activeLink, setActiveLink] = useState('');
@@ -22,7 +23,7 @@ export default function PortfolioPage() {
     const getWorkProjectCardsData = () =>{
         let card1 = {
           title: "Aristocrat Connex",
-          imageURLs: [aristoConnex, buffaloBigWheel],
+          imageURLs: [aristoConnex],
           components: ["NodeJS", "Python", "MongoDB", "RabbitMQ", "SocketIO", "AWS"],
           description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications. A scanner component that scanned the User's QR code and logged them into the slot machine"
         } as ProjectDataModel;
@@ -67,8 +68,15 @@ export default function PortfolioPage() {
         description: "Developed a linear actuator that would move a creature upwards, which pushes the egg's flaps open. When the create moves downward, the flaps close up again. A NodeJS server allows the user to trigger the egg remotely"
       } as ProjectDataModel;
 
+      let card4 = {
+        title: "VR Live Video Feed",
+        imageURLs: [projectGundam],
+        components: ["Python", "NodeJS", "SocketIO", "Raspberry Pi", "Unity", "Oculus Headet"],
+        description: "Developed a Server that received angle values from a Unity client running on a VR Headset. The angle values were translated into corresponding servo positions such that the point of view of the VR headset is mimicked on the camera (i.e. if the headset looked up, the camera would also look up). The Raspberry Pi gave a live stream of images to the VR headset."
+      } as ProjectDataModel;
+
   
-      const result = [card1, card2, card3];
+      const result = [card1, card2, card4, card3];
       return result;
     }
 
