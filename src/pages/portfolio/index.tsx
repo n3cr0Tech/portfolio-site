@@ -44,8 +44,15 @@ export default function PortfolioPage() {
           components: ["Python", "PyTest", "BOTO3", "AWS"],
           description: "Internal tool used to deploy apps onto AWS. It handled secrets, credentials, and config files for various AWS components (e.g. ElasticBeanstalk, DynamoDB, EC2, Lambda, etc.)",
         } as ProjectDataModel;
+
+        let card4 = {
+          title: "ZPixChecker",
+          imageURLs: [],
+          components: ["Python", "Java Spring", "DynamoDB", "AWS Lambda"],
+          description: "Automated the process of looking for missing product photos coming in from various studios. Lambdas would check files that were received and record them on DynamoDB. Java Spring provided a UI for the admin to see which image files were missing."
+        } as ProjectDataModel;
     
-        const result = [card1, card2, card3];
+        const result = [card1, card2, card3, card4];
         return result;
     }
 
