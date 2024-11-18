@@ -5,13 +5,16 @@ import { ProjectCard } from "@/components/ProjectCard";
 //work projects
 import buffaloBigWheel from '@/assets/buffaloBigWheel.jpg'
 import aristoConnex from '@/assets/aristocratConnex.jpeg'
+import connexDiagram from '@/assets/diagrams/connexDiagram.jpg'
+import bigWheelDiagram from '@/assets/diagrams/bigWheelDiagram.jpg'
 import buffaloTourney from '@/assets/buffaloTourney.jpg'
 
 //personal projects
 import yoBatman from '@/assets/yoBatman.jpg'
 import deliverySystem from '@/assets/deliverySystem.jpg'
 import projectGundam from '@/assets/projectGundam.jpg'
-import alienEgg from '@/assets/alienEgg.jpg'
+import alienEggOpen from '@/assets/alienEggOpen.jpg'
+import alienEggClosed from '@/assets/alienEggClosed.jpg'
 
 export default function PortfolioPage() {
     const [activeLink, setActiveLink] = useState('');
@@ -23,14 +26,14 @@ export default function PortfolioPage() {
     const getWorkProjectCardsData = () =>{
         let card1 = {
           title: "Aristocrat Connex",
-          imageURLs: [aristoConnex],
+          imageURLs: [aristoConnex, connexDiagram],
           components: ["NodeJS", "Python", "MongoDB", "RabbitMQ", "SocketIO", "AWS"],
           description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications. A scanner component that scanned the User's QR code and logged them into the slot machine"
         } as ProjectDataModel;
     
         let card2 = {
           title: "Buffalo Big Wheel",
-          imageURLs: [buffaloBigWheel],
+          imageURLs: [buffaloBigWheel, bigWheelDiagram],
           components: ["NodeJS", "MongoDB", "AWS", "RabbitMQ", "SocketIO", "Unity"],
           description: "Designed architecture and game flow (e.g. game sequences and SocketIO communications). Implemented adapter for capacitive touch hardware to control Unity game"
         } as unknown as ProjectDataModel;
@@ -63,9 +66,9 @@ export default function PortfolioPage() {
 
       let card3 = {
         title: "Alien Egg",
-        imageURLs: [alienEgg],
-        components: ["Python", "NodeJS", "Raspberry Pi"],
-        description: "Developed a linear actuator that would move a creature upwards, which pushes the egg's flaps open. When the create moves downward, the flaps close up again. A NodeJS server allows the user to trigger the egg remotely"
+        imageURLs: [alienEggOpen, alienEggClosed],
+        components: ["Python", "NodeJS", "Raspberry Pi", "Fusion 360"],
+        description: "Designed mechanism and circuitry. Created a linear actuator that would move a creature upwards, which pushes the egg's flaps open. When the create moves downward, the flaps close up again. A NodeJS server allows the user to control the egg remotely to open/close."
       } as ProjectDataModel;
 
       let card4 = {
@@ -76,7 +79,7 @@ export default function PortfolioPage() {
       } as ProjectDataModel;
 
   
-      const result = [card1, card2, card4, card3];
+      const result = [card1, card2, card3, card4];
       return result;
     }
 
