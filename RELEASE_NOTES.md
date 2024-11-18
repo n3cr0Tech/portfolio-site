@@ -1,3 +1,7 @@
+## 0.3.0
+- Added technical diagrams and alien egg photos
+    - So the carousel shows up now
+
 ## 0.2.0
 - bottom section of cards is grey with white text of Components
 - Each card can now hold 0 or multiple images
