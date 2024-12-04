@@ -2,8 +2,14 @@
 import {ProjectDataModel} from "../datamodels/ProjectDataModel";
 import Image, { StaticImageData } from "next/image";
 import { Carousel } from "./Carousel";
+import { useEffect } from "react";
 
 export const ProjectCard = (props: {projectCards: ProjectDataModel[]}) =>{
+
+    useEffect(() => {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => img.src); //force load all images
+    }, []);
 
     const ensureImageDisplay = (imgUrls: StaticImageData[]) => {    
         if (imgUrls.length > 0){            
