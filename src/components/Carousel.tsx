@@ -48,6 +48,7 @@ export const Carousel = (props:{images: StaticImageData[]}) => {
                     alt={`Slide ${currentIndex + 1}`}
                     className="w-full h-full object-cover"
                     priority={true}
+                    loading='eager'
                 />
                 {/* Navigation Buttons */}
                 {ensureDisplayArrowButtons(_images.length)}
