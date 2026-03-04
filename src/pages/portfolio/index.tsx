@@ -17,116 +17,116 @@ import alienEggOpen from '@/assets/alienEggOpen.jpg'
 import alienEggClosed from '@/assets/alienEggClosed.jpg'
 
 export default function PortfolioPage() {
-    const [activeLink, setActiveLink] = useState('');
+  const [activeLink, setActiveLink] = useState('');
 
-    useEffect(() => {
-      setActiveLink('portfolio')
-    }, []);
-    
-    const getWorkProjectCardsData = () =>{
-        let card1 = {
-          title: "Aristocrat Connex",
-          imageURLs: [aristoConnex, connexDiagram],
-          components: ["NodeJS", "Python", "MongoDB", "RabbitMQ", "SocketIO", "AWS"],
-          description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications. A scanner component that scanned the User's QR code and logged them into the slot machine"
-        } as ProjectDataModel;
-    
-        let card2 = {
-          title: "Buffalo Big Wheel",
-          imageURLs: [buffaloBigWheel, bigWheelDiagram],
-          components: ["NodeJS", "MongoDB", "AWS", "RabbitMQ", "SocketIO", "Unity"],
-          description: "Designed architecture and game flow (e.g. game sequences and SocketIO communications). Implemented adapter for capacitive touch hardware to control Unity game"
-        } as unknown as ProjectDataModel;
-    
-        let card3 = {
-          title: "AWS AutoDep Tool",
-          imageURLs: [],
-          components: ["Python", "PyTest", "BOTO3", "AWS"],
-          description: "Internal tool used to deploy apps onto AWS. It handled secrets, credentials, and config files for various AWS components (e.g. ElasticBeanstalk, DynamoDB, EC2, Lambda, etc.)",
-        } as ProjectDataModel;
+  useEffect(() => {
+    setActiveLink('portfolio')
+  }, []);
 
-        let card4 = {
-          title: "ZPixChecker",
-          imageURLs: [],
-          components: ["Python", "Java Spring", "DynamoDB", "AWS Lambda"],
-          description: "Automated the process of looking for missing product photos coming in from various studios. Lambdas would check files that were received and record them on DynamoDB. Java Spring provided a UI for the admin to see which image files were missing."
-        } as ProjectDataModel;
-    
-        const result = [card1, card2, card3, card4];
-        return result;
-    }
+  const getWorkProjectCardsData = () => {
+    let card1 = {
+      title: "Aristocrat Connex",
+      imageURLs: [aristoConnex, connexDiagram],
+      components: ["NodeJS", "Python", "MongoDB", "RabbitMQ", "SocketIO", "AWS"],
+      description: "Server that manages multiple game events in realtime and notifies numerous users of their badges that they achieved via mobile notifications. A scanner component that scanned the User's QR code and logged them into the slot machine"
+    } as ProjectDataModel;
 
-    const getPersonalProjectsCardData = () =>{
-      let card1 = {
-        title: "Animatronic 8-Ball",
-        imageURLs: [yoBatman],
-        components: ["Python", "Google STT API, Raspberry Pi"],
-        description: "Users can say the wake word and the animatronic head will prompt the User to state their yes/no question. Then based on the response being yes or no, the animatronic head will nod or pan as voice lines play."
-      } as ProjectDataModel;
+    let card2 = {
+      title: "Buffalo Big Wheel",
+      imageURLs: [buffaloBigWheel, bigWheelDiagram],
+      components: ["NodeJS", "MongoDB", "AWS", "RabbitMQ", "SocketIO", "Unity"],
+      description: "Designed architecture and game flow (e.g. game sequences and SocketIO communications). Implemented adapter for capacitive touch hardware to control Unity game"
+    } as unknown as ProjectDataModel;
 
-      let card2 = {
-        title: "Delivery System",
-        imageURLs: [deliverySystem],
-        components: ["NodeJS", "React", "Flutter", "MongoDB", "SocketIO"],
-        description: "Created a webportal that allows admin users to enter names and addresses that drivers would need to go to. The Flutter app used by drivers will be notified of new destinations and a marker will be placed on the map."
-      } as ProjectDataModel;
+    let card3 = {
+      title: "AWS AutoDep Tool",
+      imageURLs: [],
+      components: ["Python", "PyTest", "BOTO3", "AWS"],
+      description: "Internal tool used to deploy apps onto AWS. It handled secrets, credentials, and config files for various AWS components (e.g. ElasticBeanstalk, DynamoDB, EC2, Lambda, etc.)",
+    } as ProjectDataModel;
 
-      let card3 = {
-        title: "Alien Egg",
-        imageURLs: [alienEggOpen, alienEggClosed],
-        components: ["Python", "NodeJS", "Raspberry Pi", "Fusion 360"],
-        description: "Designed mechanism and circuitry. Created a linear actuator that would move a creature upwards, which pushes the egg's flaps open. When the create moves downward, the flaps close up again. A NodeJS server allows the user to control the egg remotely to open/close."
-      } as ProjectDataModel;
+    let card4 = {
+      title: "ZPixChecker",
+      imageURLs: [],
+      components: ["Python", "Java Spring", "DynamoDB", "AWS Lambda"],
+      description: "Automated the process of looking for missing product photos coming in from various studios. Lambdas would check files that were received and record them on DynamoDB. Java Spring provided a UI for the admin to see which image files were missing."
+    } as ProjectDataModel;
 
-      let card4 = {
-        title: "VR Live Video Feed",
-        imageURLs: [projectGundam],
-        components: ["Python", "NodeJS", "SocketIO", "Raspberry Pi", "Unity", "Oculus Headet"],
-        description: "Developed a Server that received angle values from a Unity client running on a VR Headset. The angle values were translated into corresponding servo positions such that the point of view of the VR headset is mimicked on the camera (i.e. if the headset looked up, the camera would also look up). The Raspberry Pi gave a live stream of images to the VR headset."
-      } as ProjectDataModel;
+    const result = [card1, card2, card3, card4];
+    return result;
+  }
 
-  
-      const result = [card1, card2, card3, card4];
-      return result;
-    }
+  const getPersonalProjectsCardData = () => {
+    let card1 = {
+      title: "Animatronic 8-Ball",
+      imageURLs: [yoBatman],
+      components: ["Python", "Google STT API, Raspberry Pi"],
+      description: "Users can say the wake word and the animatronic head will prompt the User to state their yes/no question. Then based on the response being yes or no, the animatronic head will nod or pan as voice lines play."
+    } as ProjectDataModel;
 
-    const getCurrentPage = () => {
-    if(activeLink == "passionProjects"){
+    let card2 = {
+      title: "Delivery System",
+      imageURLs: [deliverySystem],
+      components: ["NodeJS", "React", "Flutter", "MongoDB", "SocketIO"],
+      description: "Created a webportal that allows admin users to enter names and addresses that drivers would need to go to. The Flutter app used by drivers will be notified of new destinations and a marker will be placed on the map."
+    } as ProjectDataModel;
+
+    let card3 = {
+      title: "Alien Egg",
+      imageURLs: [alienEggOpen, alienEggClosed],
+      components: ["Python", "NodeJS", "Raspberry Pi", "Fusion 360"],
+      description: "Designed mechanism and circuitry. Created a linear actuator that would move a creature upwards, which pushes the egg's flaps open. When the create moves downward, the flaps close up again. A NodeJS server allows the user to control the egg remotely to open/close."
+    } as ProjectDataModel;
+
+    let card4 = {
+      title: "VR Live Video Feed",
+      imageURLs: [projectGundam],
+      components: ["Python", "NodeJS", "SocketIO", "Raspberry Pi", "Unity", "Oculus Headet"],
+      description: "Developed a Server that received angle values from a Unity client running on a VR Headset. The angle values were translated into corresponding servo positions such that the point of view of the VR headset is mimicked on the camera (i.e. if the headset looked up, the camera would also look up). The Raspberry Pi gave a live stream of images to the VR headset."
+    } as ProjectDataModel;
+
+
+    const result = [card1, card2, card3, card4];
+    return result;
+  }
+
+  const getCurrentPage = () => {
+    if (activeLink == "passionProjects") {
       return <ProjectCard projectCards={getPersonalProjectsCardData()}></ProjectCard>
-    }else{
-        return <ProjectCard projectCards={getWorkProjectCardsData()}></ProjectCard>
-    }    
+    } else {
+      return <ProjectCard projectCards={getWorkProjectCardsData()}></ProjectCard>
     }
+  }
 
-    return (
-        <div className="min-h-screen bg-gray-200 flex flex-col items-center p-4 animate-fadeIn">
-          
-          {/* Title Card */}
-          <div className="p-6 text-center mb-8 w-full max-w-2xl">      
-            <h1 className="text-4xl font-bold text-black" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Jehoshua Josue</h1>
-            <h1 className="text-s font-bold text-gray-500" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>jjosue@nomadic-interactive.com</h1>
-            
-          </div>         
-    
-          {/* Links */}
-          <div className="flex space-x-4 mb-8">
-            <button
-              className={`text-lg ${activeLink === 'portfolio' ? 'text-black underline underline-offset-4' : 'text-gray-400'}`}
-              onClick={() => setActiveLink('portfolio')}
-            >
-              Portfolio
-            </button>
-            <button
-              className={`text-lg ${activeLink === 'passionProjects' ? 'text-black underline underline-offset-4' : 'text-gray-400'}`}
-              onClick={() => setActiveLink('passionProjects')}
-            >
-              Passion Projects
-            </button>
-          </div>
-    
-          {/* Project Cards */}
-          {getCurrentPage()}
-          
-        </div>
-    );
+  return (
+    <div className="min-h-screen bg-gray-200 flex flex-col items-center p-4 animate-fadeIn">
+
+      {/* Title Card */}
+      <div className="p-6 text-center mb-8 w-full max-w-2xl">
+        <h1 className="text-4xl font-bold text-black" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Jehoshua Josue</h1>
+        <h1 className="text-s font-bold text-gray-500" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>jjosue@nomadic-interactive.com</h1>
+
+      </div>
+
+      {/* Links */}
+      <div className="flex space-x-4 mb-8">
+        <button
+          className={`text-lg ${activeLink === 'portfolio' ? 'text-black underline underline-offset-4' : 'text-gray-400'}`}
+          onClick={() => setActiveLink('portfolio')}
+        >
+          Portfolio
+        </button>
+        <button
+          className={`text-lg ${activeLink === 'passionProjects' ? 'text-black underline underline-offset-4' : 'text-gray-400'}`}
+          onClick={() => setActiveLink('passionProjects')}
+        >
+          Passion Projects
+        </button>
+      </div>
+
+      {/* Project Cards */}
+      {getCurrentPage()}
+
+    </div>
+  );
 }
